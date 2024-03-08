@@ -57,7 +57,7 @@
         </repository>
         <repository>
             <id>codemc-snapshots</id>
-            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+            <url>https://repo.codemc.io/repository/nms/</url>
         </repository>
     </repositories>
 

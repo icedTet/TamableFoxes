@@ -1,5 +1,6 @@
 package net.seanomik.tamablefoxes.util;
 
+import org.bukkit.Bukkit;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
@@ -11,14 +12,18 @@ public final class FieldHelper {
     public static void setFieldUsingUnsafe(final Field field, final Object object, final Object newValue) {
         try {
             field.setAccessible(true);
+            System.out.println("field on accessible");
             int fieldModifiersMask = field.getModifiers();
             boolean isFinalModifierPresent = (fieldModifiersMask & Modifier.FINAL) == Modifier.FINAL;
             if (isFinalModifierPresent) {
                 AccessController.doPrivileged((PrivilegedAction<Object>) () -> {
                     try {
                         sun.misc.Unsafe unsafe = getUnsafe();
+                        System.out.println("unsafe on käes");
                         long offset = unsafe.objectFieldOffset(field);
+                        System.out.println("offset mida iganes");
                         setFieldUsingUnsafe(object, field.getType(), offset, newValue, unsafe);
+                        System.out.println("see teine setfieldusingunsafe sai hakkama");
                         return null;
                     } catch (Throwable t) {
                         throw new RuntimeException(t);

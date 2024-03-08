@@ -93,7 +93,7 @@
         </repository>
         <repository>
             <id>codemc-snapshots</id>
-            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+            <url>https://repo.codemc.io/repository/nms/</url>
         </repository>
     </repositories>
 
@@ -192,6 +192,12 @@
         <dependency>
             <groupId>net.seanomik</groupId>
             <artifactId>tamablefoxes_v1_20_R1</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.seanomik</groupId>
+            <artifactId>tamablefoxes_v1_20_R3</artifactId>
             <version>${project.parent.version}</version>
             <scope>compile</scope>
         </dependency>
