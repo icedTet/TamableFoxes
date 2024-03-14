@@ -18,8 +18,9 @@ public class NMSInterface_1_20_R3 implements NMSInterface {
     @Override
     public void registerCustomFoxEntity() {
         try { // Replace the fox entity
-            Field field = EntityType.FOX.getClass().getDeclaredField("bz"); // bz = factory
-            FieldHelper.setFieldUsingUnsafe(field, EntityType.FOX, (EntityType.EntityFactory<Fox>) EntityTamableFox::new);
+            Field field = EntityType.FOX.getClass().getDeclaredField("bC"); // bC = factory
+            field.setAccessible(true);
+            field.set(EntityType.FOX, (EntityType.EntityFactory<Fox>) EntityTamableFox::new);
             Bukkit.getServer().getConsoleSender().sendMessage(Config.getPrefix() + ChatColor.GREEN + LanguageConfig.getSuccessReplaced());
         } catch (Exception e) {
             Bukkit.getServer().getConsoleSender().sendMessage(Config.getPrefix() + ChatColor.RED + LanguageConfig.getFailureReplace());

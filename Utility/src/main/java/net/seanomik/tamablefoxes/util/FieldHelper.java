@@ -1,6 +1,5 @@
 package net.seanomik.tamablefoxes.util;
 
-import org.bukkit.Bukkit;
 import sun.misc.Unsafe;
 
 import java.lang.reflect.Field;
